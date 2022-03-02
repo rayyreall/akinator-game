@@ -8,11 +8,6 @@
       "ESNext",
       "dom"
     ],
-	"files": [
-		"dist/*",
-		"examples/*",
-		"lib/*"
-	  ],
     "declaration": true,
     "sourceMap": true,
     "removeComments": false,
