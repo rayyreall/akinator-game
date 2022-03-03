@@ -2,8 +2,8 @@
 	"name": "akinator-game",
 	"version": "1.0.1",
 	"description": "Akinator Game ",
-	"main": "dist/index.js",
-	"types": "lib/index.d.ts",
+	"main": "index.js",
+	"types": "index.d.ts",
 	"scripts": {
 		"test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
 		"build": "npm run build:all",
