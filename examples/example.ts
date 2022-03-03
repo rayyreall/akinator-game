@@ -1,4 +1,4 @@
-import Akinator, { AkiniatorGet, Jawab } from '../lib/';
+import Akinator, { AkiniatorGet, Jawab } from '../index';
 import Bluebird= require('bluebird')
 import inquirer from "inquirer";
 
