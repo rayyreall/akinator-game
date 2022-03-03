@@ -31,7 +31,6 @@
 	"homepage": "https://github.com/rayyreall/akinator-game#readme",
 	"dependencies": {
 		"@types/inquirer": "^8.2.0",
-		"akinator-game": "github:rayyreall/akinator-game",
 		"axios": "^0.26.0",
 		"bluebird": "^3.7.2",
 		"https-proxy-agent": "^5.0.0",
