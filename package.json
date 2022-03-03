@@ -6,9 +6,11 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
-	"build": "npm install && npm run build:all",
-	"build:all": "npm install && npm run build:clean",
-	"clean": "tsc --build --clean"
+    "build": "npm run build:all",
+    "build:all": "npm run build:tsc && npm run build:clean",
+    "clean": "tsc --build --clean",
+    "build:tsc": "npm run build",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,7 @@
     "ttypescript": "^1.5.13"
   },
   "devDependencies": {
-    "@types/bluebird": "3.5.36",
-    "inquirer": "8.2.0"
+    "@types/bluebird": "^3.5.36",
+    "inquirer": "^8.2.0"
   }
 }
