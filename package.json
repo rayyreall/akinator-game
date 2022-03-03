@@ -1,44 +1,46 @@
 {
-  "name": "akinator-game",
-  "version": "1.0.1",
-  "description": "Akinator Game ",
-  "main": "dist/index.js",
-  "types": "lib/index.d.ts",
-  "scripts": {
-    "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
-    "build": "npm run build:all",
-    "build:all": "tsc --build",
-    "build:tsc": "tsc --build",
-    "prepare": "tsc --build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rayyreall/akinator-game.git"
-  },
-  "keywords": [
-    "Akinator",
-    "game",
-    "games",
-    "akinatorgame",
-    "akinator",
-    "gameakinator"
-  ],
-  "author": "rayyreall I`am_Ra",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/rayyreall/akinator-game/issues"
-  },
-  "homepage": "https://github.com/rayyreall/akinator-game#readme",
-  "dependencies": {
-    "@types/inquirer": "^8.2.0",
-    "axios": "^0.26.0",
-    "bluebird": "^3.7.2",
-    "https-proxy-agent": "^5.0.0",
-    "ts-node-dev": "^1.1.8",
-    "ttypescript": "^1.5.13"
-  },
-  "devDependencies": {
-    "@types/bluebird": "^3.5.36",
-    "inquirer": "^8.2.0"
-  }
+	"name": "akinator-game",
+	"version": "1.0.1",
+	"description": "Akinator Game ",
+	"main": "dist/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
+		"build": "npm run build:all",
+		"build:all": "tsc --build",
+		"build:tsc": "tsc --build",
+		"prepare": "tsc --build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rayyreall/akinator-game.git"
+	},
+	"keywords": [
+		"Akinator",
+		"game",
+		"games",
+		"akinatorgame",
+		"akinator",
+		"gameakinator"
+	],
+	"author": "rayyreall I`am_Ra",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/rayyreall/akinator-game/issues"
+	},
+	"homepage": "https://github.com/rayyreall/akinator-game#readme",
+	"dependencies": {
+		"@types/inquirer": "^8.2.0",
+		"akinator-game": "github:rayyreall/akinator-game",
+		"axios": "^0.26.0",
+		"bluebird": "^3.7.2",
+		"https-proxy-agent": "^5.0.0",
+		"ts-node-dev": "^1.1.8",
+		"ttypescript": "^1.5.13",
+		"typescript": "^4.6.2"
+	},
+	"devDependencies": {
+		"@types/bluebird": "^3.5.36",
+		"inquirer": "^8.2.0"
+	}
 }

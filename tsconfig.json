@@ -13,7 +13,6 @@
     "declaration": true,
     "sourceMap": true,
     "removeComments": false,
-    "outDir": "dist",
     "resolveJsonModule": true,
 	"noImplicitThis": true,
 	"esModuleInterop": true,
@@ -24,7 +23,8 @@
   },
   "include": [
 	"lib/*.ts",
-    "lib/**/*.ts"
+    "lib/**/*.ts",
+	"*.ts"
   ],
   "exclude": [
     "node_modules",
