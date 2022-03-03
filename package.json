@@ -7,10 +7,9 @@
   "scripts": {
     "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
     "build": "npm run build:all",
-    "build:all": "npm run build:tsc && npm run build:clean",
-    "build:clean": "tsc",
-    "build:tsc": "npm run build",
-    "prepare": "npm run build"
+    "build:all": "tsc",
+    "build:tsc": "tsc",
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
