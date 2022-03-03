@@ -1,11 +1,16 @@
 {
   "name": "akinator-game",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Akinator Game ",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
-    "build": "tsc"
+	"build": "npm run build:all",
+	"build:all": "npm run build:tsc && npm run build:clean",
+	"clean": "tsc --build --clean",
+	"build:tsc": "tsc",
+	"prepare": "tsc"
   },
   "repository": {
     "type": "git",
@@ -27,6 +32,7 @@
   "homepage": "https://github.com/rayyreall/akinator-game#readme",
   "dependencies": {
     "@types/inquirer": "^8.2.0",
+    "akinator-game": "github:rayyreall/akinator-game",
     "axios": "^0.26.0",
     "bluebird": "^3.7.2",
     "https-proxy-agent": "^5.0.0",

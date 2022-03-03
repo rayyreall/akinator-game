@@ -6,17 +6,19 @@
 	"target": "es2021",   
     "lib": [
       "ESNext",
-      "dom"
+	  "es2021",
+      "DOM",
+	  "esnext.array"
     ],
     "declaration": true,
     "sourceMap": true,
     "removeComments": false,
-    "outDir": "./dist/",
+    "outDir": "dist",
     "resolveJsonModule": true,
+	"noImplicitThis": true,
+	"esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-	"types": [
-		"node"
-	  ], 
   },
   "include": [
 	"lib/*.ts",

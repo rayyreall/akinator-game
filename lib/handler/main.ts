@@ -67,6 +67,30 @@ export default class Akinator extends Events {
 		if (!getInfo) throw new Errors("Game not started");
 		return `${getInfo.sessions.urlApiWs}/list?callback=${JQuerry}&signature=${getInfo.sessions.signature}${this.config.modeChild ? `&childMod=${this.config.modeChild}` : ""}&step=${getInfo.game.step}&session=${getInfo.sessions.session}`
 	}
+	private createURLAnswerCancel (id: string): string {
+		let getInfo: AkiniatorGet.GetInfo = this.Game.get(id);
+		let JQuerry: string = `${this.config.jqueryCode}${Date.now()}`;
+		if (!getInfo) throw new Errors("Game not started");
+		return `${getInfo.sessions.urlApiWs}/cancel_answer?callback=${JQuerry}&session=${getInfo.sessions.session}${this.config.modeChild ? `&childMod=${this.config.modeChild}` : ""}&signature=${getInfo.sessions.signature}&step=${getInfo.game.step}&answer=-1&question_filter=${getInfo.sessions.question_filter}`
+	}
+	public async undoAnswer(id: string) {
+		if (!this.Game.has(id)) throw new Error("Game not started");
+		let req: ReturnType<typeof request> = request({ headers: DEFAULT_HEADERS as unknown as AxiosRequestHeaders, ...this.costumRequest });
+		let result: any = (await req(this.createURLAnswerCancel(id), "GET")).data;
+		result = JSON.parse(result.substring(result.indexOf("(") + 1, result.indexOf(")"))).parameters;
+		let getInfo: AkiniatorGet.GetInfo = this.Game.get(id);
+		getInfo.game.questions = result.question;
+		getInfo.game.answer = result.answers.map((a: { answer: string }) => a.answer);
+		getInfo.game.step = result.step;
+		getInfo.game.progression = result.progression;
+		getInfo.game.questionid = result.questionid;
+		getInfo.game.infogain = result.infogain;
+		getInfo.game.status_minibase = result.status_minibase;
+		getInfo.game.options = result.options;
+		this.Game.set(id, getInfo);
+		this.emit(id, getInfo.game.questions, parseInt(getInfo.game.progression));
+		return this.Game.get(id) as AkiniatorGet.GetInfo
+	}
 	public async StartGame (id: string, callback?: (questions: string, progress: number) => void ): Promise<void> {
 		if (this.Game.has(id)) throw new Error("Game already started");
 		let url: { url: string, [key: string]: string} | null = await this.createURLStart();

@@ -1,4 +1,5 @@
 import Akinator, { AkiniatorGet, Jawab } from '../lib/';
+import Bluebird= require('bluebird')
 import inquirer from "inquirer";
 
 
@@ -8,21 +9,20 @@ import inquirer from "inquirer";
 		region: "id"
 	}
 	const client = new Akinator(Game.region as AkiniatorGet.SupportLanguage, false);
-	let status = 0;
 	await client.StartGame(Game.id, async (question, progress) => {
 		if (progress > 90) {
 			let result = await client.FinishGame(Game.id);
 			console.log(result)
 		}
-		status++
 		require("inquirer").prompt([
 			{
 				type: "list",
 				name: "answer",
 				message: question,
-				choices: client.infoGameID(Game.id)?.game?.answer
+				choices: [...client.infoGameID(Game.id)?.game?.answer, "Undo"]
 			}
 		]).then(async (answer: { answer: string }) => {
+			if (answer.answer === "Undo") return console.log(await client.undoAnswer(Game.id));
 			await client.send(Game.id, answer.answer as Jawab)
 		})
 	})
