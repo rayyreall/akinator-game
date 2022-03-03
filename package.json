@@ -8,7 +8,7 @@
     "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
     "build": "npm run build:all",
     "build:all": "npm run build:tsc && npm run build:clean",
-    "clean": "tsc --build --clean",
+    "build:clean": "tsc",
     "build:tsc": "npm run build",
     "prepare": "npm run build"
   },
