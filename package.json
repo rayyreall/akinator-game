@@ -6,8 +6,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "ts-node-dev --respawn --transpile-only ./examples/example.ts",
-	"build": "npm run build:all",
-	"build:all": "npm run build:tsc && npm run build:clean",
+	"build": "npm install && npm run build:all",
+	"build:all": "npm install && npm run build:clean",
 	"clean": "tsc --build --clean",
 	"build:tsc": "tsc",
 	"prepare": "tsc"
