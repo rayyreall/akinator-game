@@ -22,7 +22,7 @@ import inquirer from "inquirer";
 				choices: [...client.infoGameID(Game.id)?.game?.answer, "Undo"]
 			}
 		]).then(async (answer: { answer: string }) => {
-			if (answer.answer === "Undo") return console.log(await client.undoAnswer(Game.id));
+			if (answer.answer === "Undo") return await client.undoAnswer(Game.id);
 			await client.send(Game.id, answer.answer as Jawab)
 		})
 	})
