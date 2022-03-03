@@ -9,8 +9,7 @@
     "build": "npm run build:all",
     "build:all": "ttsc -p ./tsconfig.json --clean",
     "build:tsc": "ttsc -p ./tsconfig.json --clean",
-    "prepare": "ttsc -p ./tsconfig.json --clean",
-    "install": "npm install"
+    "prepare": "ttsc -p ./tsconfig.json --clean"
   },
   "repository": {
     "type": "git",
