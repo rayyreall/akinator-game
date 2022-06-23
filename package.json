@@ -40,6 +40,6 @@
 	},
 	"devDependencies": {
 		"@types/bluebird": "^3.5.36",
-		"inquirer": "^8.2.0"
+		"inquirer": "9.0.0"
 	}
 }
